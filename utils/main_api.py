@@ -1,5 +1,5 @@
 import requests
-
+import json
 
 class Main_api:
     """Тут будут методы написанные специально для теста"""
@@ -20,5 +20,12 @@ class Main_api:
         else:
             print(f"провал!! Статус код = {result.status_code}")
 
+    @staticmethod
+    def check_json_value(response, field_name, expected_value):
+        check = response.json()
+        check_info = check.get(field_name)
+        print(check_info)
+        assert check_info == expected_value
+        print(f"{field_name} верен")
 
 
