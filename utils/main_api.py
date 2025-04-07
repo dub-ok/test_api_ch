@@ -10,14 +10,15 @@ class Main_api:
         result = requests.get(url)
         return result
 
+    """проверка статус кода"""
     @staticmethod
-    def check_status(result_random_joke, code):
-        print(result_random_joke.status_code)
-        assert code == result_random_joke.status_code
-        if result_random_joke.status_code == code:
-            print(f"Упешно!!! Статус код = {result_random_joke.status_code}")
+    def check_status(result, code):
+        print(result.status_code)
+        assert code == result.status_code
+        if result.status_code == code:
+            print(f"Упешно!!! Статус код = {result.status_code}")
         else:
-            print(f"провал!! Статус код = {result_random_joke.status_code}")
+            print(f"провал!! Статус код = {result.status_code}")
 
 
 
