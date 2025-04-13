@@ -1,12 +1,14 @@
-import json
+import allure
 from utils.chuck_api import Chuck_api as Chuck
 from utils.main_api import Main_api as Ma
 from utils import url_list as url
 
 
-class Test_api_chuck:
+@allure.epic("Get Chuck's jokes")
+class Test_api_chuck_random_joke:
     """Тест методов"""
 
+    @allure.description("Get random Chuck's jokes")
     def test_getting_chuck_random_joke(self):
         print("Получаем случайную шутку")
         result_random_joke = Chuck.random_chuck_joke()
