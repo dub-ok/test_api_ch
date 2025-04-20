@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from utils.chuck_api import Chuck_api as Chuck
 from utils import url_list as url
 from utils.checking import Checkin_api as Ca
@@ -8,8 +10,12 @@ from utils.checking import Checkin_api as Ca
 class Test_api_chuck_random_joke:
     """Тест методов"""
 
+    @pytest.mark.skip(reason='Тестовый пропуск')
+    def test_skip_function(self):
+        print("Если видим сообщение, значит skip не работает")
+
     @allure.description("Get random Chuck's jokes")
-    def test_getting_chuck_random_joke(self):
+    def test_getting_chuck_random_joke(self, func_support):
         print("Получаем случайную шутку")
         result_random_joke = Chuck.random_chuck_joke()
         check_result_random_joke = result_random_joke.json()
